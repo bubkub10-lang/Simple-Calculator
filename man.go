@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func askNumber() float64 {
 	var number float64
@@ -22,8 +25,9 @@ func askWhatToDo() int {
 	fmt.Printf("||[1]addition,")
 	fmt.Printf("[2]subtraction,")
 	fmt.Printf("[3]multiplication,")
-	fmt.Println("[4]division||")
-	fmt.Printf("--------")
+	fmt.Printf("[4]division,")
+	fmt.Println("[5]exponentiation||")
+	fmt.Printf("--------|")
 	fmt.Scan(&choose)
 	return choose
 }
@@ -32,17 +36,21 @@ func whatToDo() {
 	thing := askWhatToDo()
 	firstNum := askNumber()
 	secondNum := askSecondNumber()
+	result := math.Pow(firstNum, secondNum)
 	if thing == 1 {
-		fmt.Println("addittion", firstNum+secondNum)
+		fmt.Println("addittion:", firstNum+secondNum)
 	}
 	if thing == 2 {
-		fmt.Println("subtraction", firstNum-secondNum)
+		fmt.Println("subtraction:", firstNum-secondNum)
 	}
 	if thing == 3 {
-		fmt.Println("multiplication", firstNum*secondNum)
+		fmt.Println("multiplication:", firstNum*secondNum)
 	}
 	if thing == 4 {
-		fmt.Println("division", firstNum/secondNum)
+		fmt.Println("division:", firstNum/secondNum)
+	}
+	if thing == 5 {
+		fmt.Printf(" exponentiation: %.0f\n", result)
 	}
 }
 
